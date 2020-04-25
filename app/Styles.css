@@ -1,0 +1,29 @@
+#divJugadores {
+    width: 600px;
+    margin: 0px auto;
+}
+.tblJugadores
+{
+  border:1px solid #000; 
+  width:60%;
+  font-size: 14px;
+}
+
+#divGrupo1, #divGrupo2, #divGrupo3, #divGrupo4 {
+    display: inline-block;
+}
+
+#divSorteo {
+    align-content: center;
+}
+
+table {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table, td,  th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }

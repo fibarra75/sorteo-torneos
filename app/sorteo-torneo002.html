@@ -1,0 +1,123 @@
+<!DOCTYPE html> 
+<html lang="en">
+    <head> <meta charset="UTF-8">
+        <title>Torneo Liga Tenistas Ferroviario</title>
+        <link href="Styles.css" rel="stylesheet" type="text/css">
+        <link href="Tabs.css" rel="stylesheet" type="text/css">
+        <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+        <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+
+        <!-- Add Firebase products that you want to use -->
+        <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-firestore.js"></script>
+        <script src="Utils.js"></script>
+        <script src="Tabs.js"></script>        
+        <script src="Scripts.js"></script>
+    </head>
+    <body>
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'divJugadores')">Jugadores</button>
+            <button class="tablinks" onclick="openTab(event, 'divGrupos')">Grupos</button>
+        </div>
+        <div id="divJugadores" class="tabcontent">
+            <table class="tblJugadores">
+                <thead>
+                    <tr>
+                    <th width="5%">#</th>
+                    <th width="70%">Nombre</th>
+                    <th width="25%">Puntos</th>
+                    </tr>
+                </thead>
+                <tbody id="dataJugadores">
+                </tbody>
+            </table>
+        </div>     
+        <div id="divGrupos" class="tabcontent">
+            <div id="divSorteo">
+                <button type="button" onclick="armarGrupos()">Sorteo</button>
+            </div>
+            <div id="divGrupo1">
+                <table>
+                    <thead>
+                        <tr>
+                        <th width="10%">#</th>
+                        <th width="90%">Nombre</th>
+                        </tr>
+                    </thead>
+                    <tbody id="Jugadores-G1">
+                    </tbody>
+                </table>
+            </div>    
+            <div id="divGrupo2">
+                <table>
+                    <thead>
+                        <tr>
+                        <th width="10%">#</th>
+                        <th width="90%">Nombre</th>
+                        </tr>
+                    </thead>
+                    <tbody id="Jugadores-G2">
+                    </tbody>
+                </table>
+            </div> 
+            <div id="divGrupo3">
+                <table>
+                    <thead>
+                        <tr>
+                        <th width="10%">#</th>
+                        <th width="90%">Nombre</th>
+                        </tr>
+                    </thead>
+                    <tbody id="Jugadores-G3">
+                    </tbody>
+                </table>
+            </div>
+            <div id="divGrupo4">
+                <table>
+                    <thead>
+                        <tr>
+                        <th width="10%">#</th>
+                        <th width="90%">Nombre</th>
+                        </tr>
+                    </thead>
+                    <tbody  id="Jugadores-G4">
+                    </tbody>
+                </table>
+            </div>
+        </div> 
+        <!--
+        <div id="container">
+        </div>
+        -->
+        <script type="text/javascript">
+            window.onload = function() {
+                console.log('Ya se cargo el documento');
+
+                let local = getUrlParameter('local');
+                if (local) persistenciaLocal = (local=="true"?true:false);
+
+                if (!persistenciaLocal) {
+                    localStorage.removeItem('sTorneo');
+                    aJugadores = [];
+                } else {
+                    expiraDataTorneo();
+                }
+                
+                rescatarListaJugadoresLocal();
+
+                console.log('local: ' + persistenciaLocal);
+                console.log('largo aJugadores: ' + aJugadores.length);
+
+                if (persistenciaLocal && aJugadores.length > 0) {
+                    generarTablasJugadores();
+                } else {
+                    generarListaJugadores();
+                }
+
+                document.getElementById("divJugadores").style.display = "block";
+            };
+        </script>    
+    </body>
+</html>

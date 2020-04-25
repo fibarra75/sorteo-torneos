@@ -1,0 +1,56 @@
+<!DOCTYPE html> 
+<html lang="en">
+    <head> <meta charset="UTF-8">
+        <title>UI Demo</title>
+        <link href="Styles.css" rel="stylesheet" type="text/css">
+        <script src="Scripts.js">
+            addName.counterRows = 0;
+
+            const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            const randomMonth = months[Math.floor(Math.random() * months.length)];
+
+            console.log("random month =>", randomMonth);
+
+        </script>    
+    </head>
+    <body>
+        <div id="container">
+            <div id="uiContainer">
+                Full Name : <input id="Name" type="text" name="Name">
+                Age : <input id="Age" type="number" name="Age">    
+                <button 
+                    onclick="addName(document.getElementById('Name').value
+                    ,document.getElementById('Age').value
+                    ,document.getElementById('counter').value)">
+                    Add
+                </button>    
+                <table id="namesTable">
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Age</th>
+                    </tr>
+                    <tr>    
+                    </tr>
+                </table> 
+            </div>    
+            <div id="counterDiv">
+                Total Records : <input id="counter" type="number" value="0" readonly>    
+            </div>    
+        </div>
+        <script type="text/javascript">
+            localStorage.removeItem('sTorneo');
+            var myArray = [
+                    "Apples",
+                    "Bananas",
+                    "Pears"
+                    ];
+
+            var i = Math.floor(Math.random()*myArray.length)
+            var randomItem = myArray[i];
+
+            console.log('i: ' + i);
+            console.log('Item: ' + randomItem);
+        </script>    
+    </body>
+</html>
