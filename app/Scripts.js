@@ -1,3 +1,4 @@
+console.log('Hola GitHub');
 var persistenciaLocal = true;
 
 var aJugadores = [];
